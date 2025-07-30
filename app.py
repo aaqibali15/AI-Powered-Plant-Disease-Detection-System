@@ -7,8 +7,8 @@ from torchvision import models
 
 # Google Drive file IDs
 MODEL_URLS = {
-    "Wheat": "https://drive.google.com/file/d/1md2rJv3E3UY_rNXou3a33RcGpWbVS1sY/view?usp=drive_link",
-    "Cotton": "https://drive.google.com/file/d/13b0_Yo1t2CaYX6yM6hfoYP2DrTmgRy4z/view?usp=drive_link"
+    "Wheat": "https://drive.google.com/uc?id=1md2rJv3E3UY_rNXou3a33RcGpWbVS1sY",
+    "Cotton": "https://drive.google.com/uc?id=13b0_Yo1t2CaYX6yM6hfoYP2DrTmgRy4z"
 }
 
 MODEL_FILES = {
