@@ -1,23 +1,63 @@
-🧠 AI-Powered Plant Disease Detection System 🌿
-This project is an intelligent deep learning-based system that helps farmers, agronomists, and researchers identify plant diseases from leaf images. Powered by a trained Convolutional Neural Network (CNN), the system classifies plant leaves into various disease categories with high accuracy.
+# 🌿 Plant Disease Classification Using Deep Learning
+This is a Streamlit-based web application that uses a trained PyTorch model to detect plant diseases from leaf images. The model predicts the disease class and suggests possible solutions.
 
-🔍 Project Overview
-This AI-powered system uses image classification to detect diseases in plant leaves by analyzing visual patterns. It was trained on a labeled dataset of plant diseases and tested for real-world applicability.
+# 📌 Features
+Upload leaf images to identify diseases.
 
-🚀 Features:
-Upload plant leaf images via web interface (Streamlit-based)
+Predicts class using a trained .pth model.
 
-Classifies leaf image into one of several plant disease categories
+Shows the confidence score of the prediction.
 
-Shows confidence/probability for each prediction
+Provides a short description and solution for each disease.
 
-Provides disease name and suggested treatment
+Simple UI powered by Streamlit.
 
-Lightweight frontend that runs locally or on cloud (e.g., Streamlit, Hugging Face Spaces)
+Works locally in a single folder — no complex structure required.
 
-🛠️ Tech Stack
-Layer	Tool/Library
-Language	Python
-Deep Learning	PyTorch
-Interface	Streamlit
-Deployment	Localhost / GitHub
+🛠️ Technologies Used
+Python
+
+PyTorch (for the model)
+
+Streamlit (for the web UI)
+
+Torchvision (for image transformations)
+
+🚀 How to Run the App
+Clone this repository:
+
+bash
+Copy
+Edit
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+Install the required libraries:
+
+bash
+Copy
+Edit
+pip install -r requirements.txt
+Download the trained model file:
+
+The model is larger than 25MB and cannot be uploaded to GitHub.
+
+🔗 Download model.pth from here
+
+Place it in the same folder as app.py.
+
+Run the app:
+
+bash
+Copy
+Edit
+streamlit run app.py
+🖼️ Example
+After uploading a leaf image, the app will show:
+
+Predicted disease name
+
+Confidence (%)
+
+Disease description
+
+Recommended solution
