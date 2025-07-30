@@ -26,8 +26,9 @@ Works locally in a single folder — no complex structure required.
 # 🚀 How to Run the App
 Clone this repository:
 
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/aaqibali15/AI-Powered-Plant-Disease-Detection-System.git
+cd AI-Powered-Plant-Disease-Detection-System
+
 Install the required libraries:
 
 pip install -r requirements.txt
