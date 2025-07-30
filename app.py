@@ -1,3 +1,42 @@
+# This code is add to add the .pth files from the drive 
+import os
+import gdown
+import torch
+import streamlit as st
+from torchvision import models
+
+# Google Drive file IDs
+MODEL_URLS = {
+    "Wheat": "https://drive.google.com/file/d/1md2rJv3E3UY_rNXou3a33RcGpWbVS1sY/view?usp=drive_link",
+    "Cotton": "https://drive.google.com/file/d/13b0_Yo1t2CaYX6yM6hfoYP2DrTmgRy4z/view?usp=drive_link"
+}
+
+MODEL_FILES = {
+    "Wheat": "resnet50_wheat_disease.pth",
+    "Cotton": "resnet50_cotton_disease.pth"
+}
+
+def download_model(crop_type):
+    model_file = MODEL_FILES[crop_type]
+    model_url = MODEL_URLS[crop_type]
+
+    if not os.path.exists(model_file):
+        st.info(f"Downloading {model_file} from Google Drive...")
+        gdown.download(model_url, model_file, quiet=False)
+    return model_file
+
+@st.cache_resource
+def load_model(crop_type):
+    model_file = download_model(crop_type)
+    model = models.resnet50(pretrained=False)
+    num_classes = 3  # adjust according to your dataset
+    model.fc = torch.nn.Linear(model.fc.in_features, num_classes)
+    model.load_state_dict(torch.load(model_file, map_location=torch.device('cpu')))
+    model.eval()
+    return model
+
+
+
 import streamlit as st
 import torch
 from torchvision import transforms, models
