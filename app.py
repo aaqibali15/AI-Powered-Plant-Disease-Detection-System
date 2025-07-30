@@ -5,10 +5,10 @@ import torch
 import streamlit as st
 from torchvision import models
 
-# Google Drive file IDs
+# File IDs from Google Drive
 MODEL_URLS = {
-    "Wheat": "https://drive.google.com/uc?id=1md2rJv3E3UY_rNXou3a33RcGpWbVS1sY",
-    "Cotton": "https://drive.google.com/uc?id=13b0_Yo1t2CaYX6yM6hfoYP2DrTmgRy4z"
+    "Wheat": "1md2rJv3E3UY_rNXou3a33RcGpWbVS1sY",
+    "Cotton": "13b0_Yo1t2CaYX6yM6hfoYP2DrTmgRy4z"
 }
 
 MODEL_FILES = {
@@ -18,22 +18,24 @@ MODEL_FILES = {
 
 def download_model(crop_type):
     model_file = MODEL_FILES[crop_type]
-    model_url = MODEL_URLS[crop_type]
+    file_id = MODEL_URLS[crop_type]
+    url = f"https://drive.google.com/uc?id={file_id}"
 
     if not os.path.exists(model_file):
         st.info(f"Downloading {model_file} from Google Drive...")
-        gdown.download(model_url, model_file, quiet=False)
+        gdown.download(url, model_file, quiet=False)
     return model_file
 
 @st.cache_resource
 def load_model(crop_type):
     model_file = download_model(crop_type)
     model = models.resnet50(pretrained=False)
-    num_classes = 3  # adjust according to your dataset
+    num_classes = 3  # adjust this as per your dataset
     model.fc = torch.nn.Linear(model.fc.in_features, num_classes)
     model.load_state_dict(torch.load(model_file, map_location=torch.device('cpu')))
     model.eval()
     return model
+
 
 
 
