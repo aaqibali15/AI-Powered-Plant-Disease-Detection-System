@@ -1,22 +1,20 @@
-# Wheat Plant Disease Detection - Requirements
-# Core dependencies for the Streamlit web application
+# Core dependencies for the Wheat Plant Disease Detection Streamlit app
 
 # Web framework
 streamlit>=1.28.0
 
-# Deep learning framework
+# Deep learning frameworks
 torch>=2.0.0
 torchvision>=0.15.0
 
 # Image processing
 Pillow>=10.0.0
 
-# HTTP requests for background images
+# For downloading background or example images
 requests>=2.31.0
 
-# Data manipulation and numerical computing
+# Data manipulation
 numpy>=1.24.0
 
-# Additional dependencies that might be needed
-# (These are often included with the above packages but listed for completeness)
-typing-extensions>=4.7.0 
+# Typing support (often installed with Python but explicitly listed)
+typing-extensions>=4.7.0
